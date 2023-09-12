@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+
+
+:root {
+  --primary-color: rgb(190, 214, 249);
+  --secondary-color: rgb(58, 58, 58);
+  --secondary-color-hover: rgb(0, 0, 0);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--primary-color);
+  overflow-x: hidden;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  font-family: Sen, sans-serif;
+  text-align: justify;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+/* Loader */
+.loader {
+  background: var(--primary-color);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 10;
+  display: flex;
+  /* hidden attribute in html doesn't work if we have display value here */
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* Navigation */
+.navigation-container {
+  position: fixed;
+  top: 0;
+}
+
+.navigation-items {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.background {
+  background: var(--primary-color);
+  position: fixed;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  z-index: -1;
+}
+
+.clickable {
+  color: var(--secondary-color);
+  cursor: pointer;
+  user-select: none;
+}
+
+.clickable:hover {
+  color: var(--secondary-color-hover);
+}
+
+
+/* Images Container */
+.images-container {
+  width: 1000px;
+  margin-top: 50px;
+}
+
+.card {
+  background: white;
+  margin: 10px 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  border-radius: 5px 5px 0 0;
+}
+
+
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  margin: 10px auto;
+  font-size: 24px;
+}
+
+
+
+/* Save Confirmation */
+.save-confirmed {
+  background: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  position: fixed;
+  bottom: 25px;
+  right: 50px;
+}
+
+/* Hidden */
+
+.hidden {
+  display: none;
+}
+
+/* Large Smartphone (Vertical) */
+@media screen and (max-width: 800px) {
+  body {
+    line-height: 1.4rem;
+    font-size: 0.9rem;
+    text-align: justify;
+  }
+
+  .images-container {
+    width: 100%;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .save-confirmed {
+    right: 25px;
+  }
+
+  
+}
