@@ -6,13 +6,26 @@ const loader = document.querySelector('.loader');
 
 // NASA API
 
-const count = 3;
+const count = 6;
 const apiKey = 'DEMO_KEY';
 const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&count=${count}`;
 
 
 let resultsArray = [];
 let favorites = {};
+
+function showContent(page) {
+    window.scrollTo({ top: 0, behavior: 'instant'});
+    if (page === 'results') {
+        resultsNav.classList.remove('hidden');
+        favoritesNav.classList.add('hidden');
+    } else {
+        resultsNav.classList.add('hidden');
+        favoritesNav.classList.remove('hidden');
+    }
+    loader.classList.add('hidden');
+};
+
 
 // What is refactoring?
 
@@ -62,7 +75,7 @@ function createDOMNodes(page) {
             // saveText.onclick(`saveFavorites('${result.url}')`) doesn't work.
             saveText.setAttribute('onclick', `removeFavorite('${result.url}')`);
         }
-
+        
         // Footer Container
         const footer = document.createElement('small');
         footer.classList.add('text-muted');
@@ -83,7 +96,7 @@ function createDOMNodes(page) {
         card.append(link, cardBody);
         imagesContainer.appendChild(card);
     });
-}
+};
 
 
 function updateDOM(page) {
@@ -94,6 +107,7 @@ function updateDOM(page) {
     };
     imagesContainer.textContent = '';
     createDOMNodes(page);
+    showContent(page);
 };
 
 
@@ -101,6 +115,8 @@ function updateDOM(page) {
 // Get Images From NASA API
 
 async function getNasaPictures() {
+    // Show Loader
+    loader.classList.remove('hidden');
     try {
         const response = await fetch(apiUrl);
         resultsArray = await response.json();
@@ -142,6 +158,11 @@ function removeFavorite(itemUrl) {
 };
 
 
+// imperative programming - guiding the computer step by step - this style, although intuitive and useful, can be bug prone. Hard to keep track as code gets bigger and bigger. So the alternative is declarative programming.
 
+// declarative programming - (HTML is declarative) - (Frameworks give a higher level of abstraction - React, Angular, Vue) - 
+
+// 
 // On Load
+
 getNasaPictures();

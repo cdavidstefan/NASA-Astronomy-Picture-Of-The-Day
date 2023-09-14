@@ -2,9 +2,10 @@
 
 
 :root {
-  --primary-color: rgb(190, 214, 249);
+  --primary-color: rgb(106, 132, 103);
   --secondary-color: rgb(58, 58, 58);
   --secondary-color-hover: rgb(0, 0, 0);
+  --tertiary-color: rgb(170, 170, 170);
 }
 
 html {
@@ -84,7 +85,7 @@ body {
 }
 
 .card {
-  background: white;
+  background: var(--tertiary-color);
   margin: 10px 10px 20px;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -116,7 +117,7 @@ body {
 
 /* Save Confirmation */
 .save-confirmed {
-  background: white;
+  background: var(--tertiary-color);
   padding: 8px 16px;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
